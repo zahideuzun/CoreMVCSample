@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CoreMVCSample.UI.Migrations
 {
-    [DbContext(typeof(UrunAlerjiContext))]
+    [DbContext(typeof(ProductAllergyContext))]
     partial class UrunAlerjiContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

@@ -25,7 +25,7 @@ namespace CoreMVCSample.UI
 		public void ConfigureServices(IServiceCollection services)
 		{
 			services.AddControllersWithViews();
-			services.AddDbContext<UrunAlerjiContext>(a => a.UseSqlServer(Configuration.GetConnectionString("ConnSt")));
+			services.AddDbContext<ProductAllergyContext>(a => a.UseSqlServer(Configuration.GetConnectionString("ConnSt")));
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

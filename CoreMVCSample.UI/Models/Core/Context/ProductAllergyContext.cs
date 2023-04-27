@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CoreMVCSample.UI.Models.Core.Context
 {
-	public class UrunAlerjiContext : DbContext
+	public class ProductAllergyContext : DbContext
 	{
-		public UrunAlerjiContext(DbContextOptions options) : base(options)
+		public ProductAllergyContext(DbContextOptions options) : base(options)
 		{
 
 		}

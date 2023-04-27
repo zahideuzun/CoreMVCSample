@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CoreMVCSample.UI.Migrations
 {
-    [DbContext(typeof(UrunAlerjiContext))]
+    [DbContext(typeof(ProductAllergyContext))]
     [Migration("20230427175120_v2")]
     partial class v2
     {
