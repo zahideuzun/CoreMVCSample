@@ -1,0 +1,19 @@
+﻿@model Category
+
+
+<form asp-action="AddCategory" asp-controller="Category" method="post">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <p>
+                    Kategori Ekle
+                </p>
+                <div class="form-group">
+                    <label asp-for="@Model.CategoryName"></label>
+                    <input type="text" asp-for="@Model.CategoryName" />
+                </div>
+                <button type="submit" class="btn btn-primary mt-2">Kaydet</button>
+            </div>
+        </div>
+    </div>
+</form>
