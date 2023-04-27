@@ -1,0 +1,35 @@
+﻿@model CoreMVCSample.UI.Models.Core.VM.UserAddVM
+
+
+<form asp-action="AddOrUpdate" asp-contoller="User">
+	@Html.AntiForgeryToken()
+	<h2>Kayıt Ol</h2>
+	<input type="hidden" asp-for="@Model.Id"/>
+	<div class="mb-3 row">
+		<label asp-for="@Model.UserName" class="col-md-12"></label>
+		<div class="col-md-4">
+			<input type="text" class="form-control" asp-for="@Model.UserName" aria-describedby="emailHelp">
+		</div>
+	</div>
+	<div class="mb-3 row">
+		<label for="exampleInputPassword1" asp-for="@Model.Email" class="form-label col-md-12"></label>
+		<div class="col-md-4">
+			<input type="email" class="form-control" asp-for="@Model.Email">
+		</div>
+	</div>
+	<div class="mb-3 row">
+		<label for="exampleInputPassword1" class="form-label col-md-12">Password</label>
+		<div class="col-md-4">
+			<input type="text" class="form-control" asp-for="@Model.Password">
+		</div>
+	</div>
+	@if (@Model.Id == 0)
+	{
+		<button type="submit" class="btn btn-primary">Kaydet</button>
+	}
+	else
+	{
+		<button type="submit" class="btn btn-primary">Güncelle</button>
+	}
+
+</form>
