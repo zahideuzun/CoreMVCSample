@@ -36,9 +36,9 @@ namespace CoreMVCSample.UI.Models.Core.DAL
 			}).ToList();
 		}
 
-		public void CheckUser(string email,string password)
+		public User CheckUser(string email,string password)
 		{
-			_db.Users.Where(x=>x.Email==email && x.Password==password);
+			return _db.Users.Where(x=>x.Email==email && x.Password==password).SingleOrDefault();
 		}
 	}
 }

@@ -21,6 +21,11 @@ namespace CoreMVCSample.UI.Controllers
 		[HttpPost]
 		public IActionResult Login(UserLoginVM model)
 		{
+			var result = _dal.CheckUser(model.Email, model.Password);
+			if (result!=null)
+			{
+				return RedirectToAction("GetAllUsers", "User");
+			}
 			return View();
 		}
 	}
