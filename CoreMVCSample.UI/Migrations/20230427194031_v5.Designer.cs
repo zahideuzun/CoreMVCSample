@@ -3,14 +3,16 @@ using CoreMVCSample.UI.Models.Core.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CoreMVCSample.UI.Migrations
 {
     [DbContext(typeof(ProductAllergyContext))]
-    partial class UrunAlerjiContextModelSnapshot : ModelSnapshot
+    [Migration("20230427194031_v5")]
+    partial class v5
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -114,7 +116,6 @@ namespace CoreMVCSample.UI.Migrations
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
-
 
                     b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
