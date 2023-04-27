@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CoreMVCSample.UI.Models.Core.VM;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CoreMVCSample.UI.Controllers
 {
@@ -6,7 +7,7 @@ namespace CoreMVCSample.UI.Controllers
 	{
 		public IActionResult Index()
 		{
-			return View();
+			return View(new UserAddVM());
 		}
 	}
 }
