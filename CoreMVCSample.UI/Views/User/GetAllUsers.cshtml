@@ -1,0 +1,20 @@
+﻿@model List<CoreMVCSample.UI.Models.Core.VM.UserAddVM>
+
+<table class="table">
+	<thead>
+	<th>Kullanıcı Adı</th>
+	<th>Kullanıcı Email</th>
+	<th>Kullanıcı Parola</th>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>@item.UserName</td>
+				<td>@item.Email</td>
+				<td>@item.Password</td>
+			</tr>
+		}
+
+	</tbody>
+</table>
