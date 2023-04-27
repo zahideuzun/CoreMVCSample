@@ -1,5 +1,9 @@
-﻿using CoreMVCSample.UI.Models.Core.Context;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
+using CoreMVCSample.UI.Models.Core.Context;
 using CoreMVCSample.UI.Models.Core.Entities;
+using CoreMVCSample.UI.Models.Core.VM;
 
 namespace CoreMVCSample.UI.Models.Core.DAL
 {
@@ -11,13 +15,30 @@ namespace CoreMVCSample.UI.Models.Core.DAL
 			_db = db;
 		}
 
-		public void UserAdd(User user)
+		public void UserAdd(UserAddVM user)
 		{
-			_db.Users.Add(user);
+			_db.Users.Add(new User()
+			{
+				UserName = user.UserName,
+				Email = user.Email,
+				Password = user.Password,
+			});
+			_db.SaveChanges();
 		}
+
+		public List<UserAddVM> GetAllUser()
+		{
+			return _db.Users.Select(x => new UserAddVM()
+			{
+				UserName = x.UserName,
+				Email = x.Email,
+				Password = x.Password
+			}).ToList();
+		}
+
 		public void CheckUser(string email,string password)
 		{
-
+			_db.Users.Where(x=>x.Email==email && x.Password==password);
 		}
 	}
 }
