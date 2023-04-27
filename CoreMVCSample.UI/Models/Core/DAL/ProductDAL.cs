@@ -8,7 +8,7 @@ namespace CoreMVCSample.UI.Models.Core.DAL
 	public class ProductDAL
 	{
 		private readonly ProductAllergyContext _context;
-		ProductDAL(ProductAllergyContext context)
+		public ProductDAL(ProductAllergyContext context)
 		{
 			_context = context;
 		}
