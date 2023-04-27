@@ -44,5 +44,11 @@ namespace CoreMVCSample.UI.Controllers
 			return View(_dal.GetAllUser());
 		}
 
+		public IActionResult Delete(int Id)
+		{
+			//_dal.Delete(Id);
+			return RedirectToAction("GetAllUsers");
+
+		}
 	}
 }
