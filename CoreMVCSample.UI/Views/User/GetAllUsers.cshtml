@@ -14,6 +14,7 @@
 				<td>@item.Email</td>
 				<td>@item.Password</td>
 				<td> <a type="submit" class="btn btn-success" asp-controller="User" asp-action="AddOrUpdate" asp-route-Id="@item.Id"/>Güncelle<a/> </td>
+				<td> <a type="submit" class="btn btn-danger" asp-controller="User" asp-action="Delete" asp-route-Id="@item.Id"/>Sil<a/> </td>
 			</tr>
 		}
 
