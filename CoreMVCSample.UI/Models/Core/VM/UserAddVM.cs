@@ -6,6 +6,7 @@ namespace CoreMVCSample.UI.Models.Core.VM
 {
 	public class UserAddVM
 	{
+		public int Id { get; set; }
 		[DisplayName("Kullanıcı Adı")]
 		public string UserName { get; set; }
 		[DisplayName("E-Posta")]

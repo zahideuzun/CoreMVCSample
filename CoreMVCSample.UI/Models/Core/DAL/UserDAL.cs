@@ -30,15 +30,40 @@ namespace CoreMVCSample.UI.Models.Core.DAL
 		{
 			return _db.Users.Select(x => new UserAddVM()
 			{
+				Id = x.UserId,
 				UserName = x.UserName,
 				Email = x.Email,
 				Password = x.Password
 			}).ToList();
 		}
 
-		public User CheckUser(string email,string password)
+		public User CheckUser(string email, string password)
 		{
-			return _db.Users.Where(x=>x.Email==email && x.Password==password).SingleOrDefault();
+			return _db.Users.SingleOrDefault(x => x.Email == email && x.Password == password);
+		}
+
+		public UserAddVM GetUserById(int id)
+		{
+			return _db.Users.Select(x =>
+				new UserAddVM()
+				{
+					Id = x.UserId,
+					UserName = x.UserName,
+					Email = x.Email,
+					Password = x.Password
+				}).SingleOrDefault(x=>x.Id==id);
+		}
+
+		public void Update(UserAddVM vm)
+		{
+			_db.Users.Update( new User()
+			{
+				UserName = vm.UserName,
+				Email = vm.Email,
+				Password = vm.Password,
+				UserId = vm.Id
+			});
+			_db.SaveChanges();
 		}
 	}
 }

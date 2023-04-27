@@ -13,6 +13,7 @@
 				<td>@item.UserName</td>
 				<td>@item.Email</td>
 				<td>@item.Password</td>
+				<td> <a type="submit" class="btn btn-success" asp-controller="User" asp-action="AddOrUpdate" asp-route-Id="@item.Id"/>Güncelle<a/> </td>
 			</tr>
 		}
 

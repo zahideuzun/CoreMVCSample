@@ -11,20 +11,36 @@ namespace CoreMVCSample.UI.Controllers
 		{
 			_dal = dal;
 		}
-		public IActionResult Add()
+
+		[HttpGet]
+		public IActionResult AddOrUpdate(int id)
 		{
+			if (id!=0)
+			{
+				return View(_dal.GetUserById(id));
+			}
+
 			return View(new UserAddVM());
 		}
 
 		[HttpPost]
-		public IActionResult Add(UserAddVM model)
+		public IActionResult AddOrUpdate(UserAddVM vm)
 		{
-			_dal.UserAdd(model);
+			// id varsa update yoksa add
+			if (vm.Id!=0)
+			{
+				_dal.Update(vm);
+			}
+			else
+			{
+				_dal.UserAdd(vm);
+			}
 			return RedirectToAction("GetAllUsers");
 		}
 
 		public IActionResult GetAllUsers()
 		{
+
 			return View(_dal.GetAllUser());
 		}
 
