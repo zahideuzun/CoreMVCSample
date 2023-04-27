@@ -6,6 +6,7 @@ namespace CoreMVCSample.UI.Models.Core.Entities
 	{
 		public int CategoryId { get; set; }
 		public string CategoryName { get; set; }
+		public bool IsSelected { get; set; }
 
 
 		public List<ProductCategory> ProductCategories { get; set; }
