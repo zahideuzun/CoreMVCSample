@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CoreMVCSample.UI.Models.Core.Context;
+using CoreMVCSample.UI.Models.Core.DAL;
 using Microsoft.EntityFrameworkCore;
 
 namespace CoreMVCSample.UI
@@ -26,6 +27,8 @@ namespace CoreMVCSample.UI
 		{
 			services.AddControllersWithViews();
 			services.AddDbContext<ProductAllergyContext>(a => a.UseSqlServer(Configuration.GetConnectionString("ConnSt")));
+
+			services.AddScoped<UserDAL>();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,7 +52,7 @@ namespace CoreMVCSample.UI
 			{
 				endpoints.MapControllerRoute(
 					name: "default",
-					pattern: "{controller=Home}/{action=Index}/{id?}");
+					pattern: "{controller=Account}/{action=Login}/{id?}");
 			});
 		}
 	}

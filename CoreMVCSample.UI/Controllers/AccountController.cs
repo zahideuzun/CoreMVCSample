@@ -1,13 +1,32 @@
-﻿using CoreMVCSample.UI.Models.Core.VM;
+﻿using System.Threading;
+using CoreMVCSample.UI.Models.Core.DAL;
+using CoreMVCSample.UI.Models.Core.VM;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CoreMVCSample.UI.Controllers
 {
 	public class AccountController : Controller
 	{
-		public IActionResult Index()
+		private readonly UserDAL _dal;
+		public AccountController(UserDAL dal)
 		{
-			return View(new UserAddVM());
+			_dal = dal;
+		}
+		
+		public IActionResult Login()
+		{
+			return View(new UserLoginVM());
+		}
+
+		[HttpPost]
+		public IActionResult Login(UserLoginVM model)
+		{
+			var result = _dal.CheckUser(model.Email, model.Password);
+			if (result!=null)
+			{
+				return RedirectToAction("GetAllUsers", "User");
+			}
+			return View();
 		}
 	}
 }
